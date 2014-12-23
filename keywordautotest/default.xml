@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- thread-count 定义同时启动的浏览器数 paralle选择平行模式 -->
+<suite name="LogisticsAutoTest" parallel="tests" thread-count="1">
+	<!-- chrome,firefox和ie不区分大小写 -->
+	<parameter name="browserName" value="chrome" />
+	<!-- user的属性文件地址,此配置文件存储了用户名和密码等信息 -->
+	<parameter name="userInfoPath" value="config/user.properties" />
+	<!-- 货源信息 -->
+	<parameter name="goodsInfo" value="config/goods.properties" />
+	<!-- 流程接口以及json数据 -->
+	<parameter name="interface_flow" value="config/interface.properties" />
+	<!-- driver的属性配置文件保存路径 -->
+	<parameter name="driverConfgFilePath" value="config/driver.properties" />
+	<!-- 数据库的备份和还原存放路径 -->
+	<parameter name="databasePath" value="config/database.properties" />
+	<!-- 定义测试的站点地址 -->
+	<parameter name="testurl" value="http://192.168.11.201:8080/web/index" />
+	<!-- 进程等待1秒中的控制时间 -->
+	<parameter name="sleepTime" value="800" />
+	<!-- 页面元素30秒不出现超时时间 -->
+	<parameter name="timeOut" value="15" />
+	<!-- 这个是等待alert弹出的时间 单位毫秒 -->
+	<parameter name="waitMillisecondsForAlert" value="40000" />
+	<!-- 相同元素中的index值 for goods -->
+	<parameter name="indexGoods" value="0" />
+	<!-- 相同元素中的index值 for cars -->
+	<parameter name="indexCars" value="8" />
+
+	<listeners>
+		<!-- arrow插件实现用例失败重跑以及生成测试报告 -->
+		<listener class-name="com.incito.logistics.plugins.arrow.TestResultListener" />
+		<listener class-name="com.incito.logistics.plugins.arrow.RetryListener" />
+		<listener class-name="com.incito.logistics.plugins.arrow.PowerEmailableReporter" />
+
+	</listeners>
+
+</suite> 

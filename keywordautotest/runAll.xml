@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- thread-count 定义同时启动的浏览器数 、parallel="tests" 表明每个test都是平级的 -->
+<suite name="物流货代web自动化测试报告" parallel="tests" thread-count="2">
+	<!-- chrome,firefox和ie不区分大小写 -->
+	<parameter name="browserName" value="chrome" />
+	<!-- user的属性文件地址,此配置文件存储了用户名和密码等信息 -->
+	<parameter name="userInfoPath" value="config/user.properties" />
+	<!-- 货源信息 -->
+	<parameter name="goodsInfo" value="config/goods.properties" />
+	<!-- 流程接口以及json数据 -->
+	<parameter name="interface_flow" value="config/interface.properties" />
+	<!-- driver的属性配置文件保存路径 -->
+	<parameter name="driverConfgFilePath" value="config/driver.properties" />
+	<!-- 数据库的备份和还原存放路径 -->
+	<parameter name="databasepath" value="config/database.properties" />
+	<!-- 定义测试的站点 -->
+	<parameter name="testurl" value="http://192.168.11.201:8080/web/index" />
+	<!-- 定义日志输出语言en = 英语 cn =中文 -->
+	<parameter name="language" value="en" />
+	<!-- 进程等待1秒中的控制时间 -->
+	<parameter name="sleepTime" value="800" />
+	<!-- 页面元素10秒不出现超时时间 -->
+	<parameter name="timeOut" value="10" />
+	<!-- 这个是等待alert弹出的时间 单位毫秒 -->
+	<parameter name="waitMillisecondsForAlert" value="40000" />
+	<!-- 相同元素中的index值 for goods -->
+	<parameter name="indexGoods" value="0" />
+	<!-- 相同元素中的index值 for cars -->
+	<parameter name="indexCars" value="8" />
+
+
+	<!--测试用例按照包名来建立test -->
+
+	<test name="注册" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.register" />
+		</packages>
+	</test>
+
+	<test name="完善用户信息" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.adduserinfo" />
+		</packages>
+	</test>
+
+	<test name="登录" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.login" />
+		</packages>
+	</test>
+
+	<test name="首页" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.home" />
+		</packages>
+	</test>
+
+	<test name="发布货源" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.sendgoods" />
+		</packages>
+	</test>
+
+	<test name="我的货源" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.mygoods" />
+		</packages>
+	</test>
+
+	<test name="找货源" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.findgoods" />
+		</packages>
+	</test>
+
+	<test name="找车源" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.findcars" />
+		</packages>
+	</test>
+
+	<test name="我的订单" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.myorders" />
+		</packages>
+	</test>
+
+	<test name="个人中心" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.personcenter" />
+		</packages>
+	</test>
+
+	<test name="网站信息" preserve-order="true">
+		<packages>
+			<package name="com.incito.logistics.testcase.foot" />
+		</packages>
+	</test>
+
+	<listeners>
+		<!-- arrow插件实现用例失败重跑以及生成测试报告 -->
+		<listener class-name="com.incito.logistics.plugins.arrow.TestResultListener" />
+		<listener class-name="com.incito.logistics.plugins.arrow.RetryListener" />
+		<listener class-name="com.incito.logistics.plugins.arrow.PowerEmailableReporter" />
+
+	</listeners>
+
+</suite> 
+
