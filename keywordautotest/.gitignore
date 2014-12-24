@@ -1,15 +1,14 @@
 /bin
 /target/
+/.settings/
+/.classpath
 /result/screenshot
 /result/test-report
 /*.bak
-/.settings/
 /test-output
 /result/log/*.log
 /result/log
 /result
-/.classpath
-
 
 
 
