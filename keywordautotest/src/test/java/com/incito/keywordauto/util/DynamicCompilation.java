@@ -52,9 +52,11 @@ public class DynamicCompilation {
   @SuppressWarnings("unchecked")
   public static void runIt() {
     try {
-      Class params[] = {};
+      @SuppressWarnings("rawtypes")
+	Class params[] = {};
       Object paramsObj[] = {};
-      Class thisClass = Class.forName("Hello");
+      @SuppressWarnings("rawtypes")
+	Class thisClass = Class.forName("Hello");
       Object iClass = thisClass.newInstance();
       Method thisMethod = thisClass.getDeclaredMethod("doit", params);
       thisMethod.invoke(iClass, paramsObj);
