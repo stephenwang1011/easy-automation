@@ -29,9 +29,9 @@
 
 	<listeners>
 		<!-- arrow插件实现用例失败重跑以及生成测试报告 -->
-		<listener class-name="com.incito.logistics.plugins.arrow.TestResultListener" />
-		<listener class-name="com.incito.logistics.plugins.arrow.RetryListener" />
-		<listener class-name="com.incito.logistics.plugins.arrow.PowerEmailableReporter" />
+		<listener class-name="com.incito.keywordauto.plugins.arrow.TestResultListener" />
+		<listener class-name="com.incito.keywordauto.plugins.arrow.RetryListener" />
+		<listener class-name="com.incito.keywordauto.plugins.arrow.PowerEmailableReporter" />
 
 	</listeners>
 

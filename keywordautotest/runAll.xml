@@ -32,77 +32,19 @@
 
 	<!--测试用例按照包名来建立test -->
 
-	<test name="注册" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.register" />
-		</packages>
-	</test>
-
-	<test name="完善用户信息" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.adduserinfo" />
-		</packages>
-	</test>
-
 	<test name="登录" preserve-order="true">
 		<packages>
 			<package name="com.incito.logistics.testcase.login" />
 		</packages>
 	</test>
 
-	<test name="首页" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.home" />
-		</packages>
-	</test>
 
-	<test name="发布货源" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.sendgoods" />
-		</packages>
-	</test>
-
-	<test name="我的货源" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.mygoods" />
-		</packages>
-	</test>
-
-	<test name="找货源" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.findgoods" />
-		</packages>
-	</test>
-
-	<test name="找车源" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.findcars" />
-		</packages>
-	</test>
-
-	<test name="我的订单" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.myorders" />
-		</packages>
-	</test>
-
-	<test name="个人中心" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.personcenter" />
-		</packages>
-	</test>
-
-	<test name="网站信息" preserve-order="true">
-		<packages>
-			<package name="com.incito.logistics.testcase.foot" />
-		</packages>
-	</test>
 
 	<listeners>
 		<!-- arrow插件实现用例失败重跑以及生成测试报告 -->
-		<listener class-name="com.incito.logistics.plugins.arrow.TestResultListener" />
-		<listener class-name="com.incito.logistics.plugins.arrow.RetryListener" />
-		<listener class-name="com.incito.logistics.plugins.arrow.PowerEmailableReporter" />
+		<listener class-name="com.incito.keywordauto.plugins.arrow.TestResultListener" />
+		<listener class-name="com.incito.keywordauto.plugins.arrow.RetryListener" />
+		<listener class-name="com.incito.keywordauto.plugins.arrow.PowerEmailableReporter" />
 
 	</listeners>
 

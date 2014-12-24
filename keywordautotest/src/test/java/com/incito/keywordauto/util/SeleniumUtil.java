@@ -53,8 +53,6 @@ public class SeleniumUtil {
 			maxWindow(browserName);
 			hasLoadPageSucceeded(timeOut);
 			get(webUrl);
-			logger.info("打开测试页面:[" + webUrl + "]");
-
 		} catch (Exception e) {
 			refresh();
 			logger.info("页面刷新成功！");
@@ -397,6 +395,7 @@ public class SeleniumUtil {
 	 * */
 	public void get(String url) {
 		driver.get(url);
+		logger.info("打开页面:[" + url + "]");
 	}
 
 	/**
