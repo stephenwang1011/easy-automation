@@ -47,7 +47,7 @@ public class DynamicTestCaseFactory {
 							"package com.incito.keywordauto.testcase."+functionName.toLowerCase()+"; \n"+
 							"import org.testng.annotations.Test; \n"+
 							"import com.incito.keywordauto.base.BaseParpare; \n "+
-							"import com.incito.keywordauto.util.TestOperation; \n"+
+							"import com.incito.keywordauto.util.SeleniumKeyWordAction; \n"+
 					        "public class "+functionName+sheetName+" extends BaseParpare{ \n" 
 					);
 	
@@ -55,7 +55,7 @@ public class DynamicTestCaseFactory {
 					writer.write( 
 							"@Test \n" +
 						    " public void"+" "+sheetName+"() { \n" +
-						    "TestOperation.readExcel(\""+functionName+"\",\""+sheetName+"\",seleniumUtil);\n" +
+						    "SeleniumKeyWordAction.readExcel(\""+functionName+"\",\""+sheetName+"\",seleniumUtil);\n" +
 						    " }\n" 
 							);
 		
