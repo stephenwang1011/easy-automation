@@ -22,6 +22,7 @@ public class DynamicTestCaseFactory {
 		final String caseFolder = "src/test/java/com/incito/keywordauto/testcase/";
 	    File sourceFile = null;
 	    String sheetName = null;
+	    int sheetNum = 0;
 	    for (int i = 0; i < getFunctionNum(); i++) { //第一层循环 取得模块的个数
 		  	try{
 		 
@@ -34,6 +35,7 @@ public class DynamicTestCaseFactory {
 		  			}
 		  		try {
 		  			sheetName = getSheetName(j+1, getExcelRelativePath(i)); //取得sheetName 只进行一次全局异常捕获
+		  			sheetNum = getSheetNum(getExcelRelativePath(i));
 		  			} catch (BiffException e1) {
 		  					e1.printStackTrace();
 		  				}
@@ -62,10 +64,11 @@ public class DynamicTestCaseFactory {
 			    		"}"
 			    		);
 			    writer.close(); 
-			}}catch(IOException e){
+			}
+			}catch(IOException e){
 				Assert.fail("IO异常", e);
 			}
-		  	System.out.println("模块："+getFunctionName(i)+" 的用例已经生成完毕，请到res/testcase/"+getFunctionName(i).toLowerCase()+"路径下查阅！");
+		  	System.out.println("模块["+getFunctionName(i)+"] 的用例已经生成完毕，共计："+(sheetNum-1)+"条，请到"+caseFolder+getFunctionName(i).toLowerCase()+"路径下查阅！");
 		}
 
   }
