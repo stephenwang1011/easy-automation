@@ -16,7 +16,7 @@ import org.testng.Assert;
  * @Description  自动生成测试代码的工具类
  *
  */
-public class DynamicTestCaseFactory {
+public class TestCaseFactory {
   public static void main(String[] args)   {
 
 		final String caseFolder = "src/test/java/com/incito/keywordauto/testcase/";
