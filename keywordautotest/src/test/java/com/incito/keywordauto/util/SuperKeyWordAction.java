@@ -10,9 +10,14 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-
-public class SeleniumKeyWordAction {
-	public static Logger logger = Logger.getLogger(SeleniumKeyWordAction.class.getName());
+/**
+ * 
+ * @author xy-incito-wy
+ * @Description 把Selenium操作的变成关键字操作
+ *
+ */
+public class SuperKeyWordAction {
+	public static Logger logger = Logger.getLogger(SuperKeyWordAction.class.getName());
 	/**
 	 * 
 	 * @param locateWay 定位方式
@@ -54,7 +59,7 @@ public class SeleniumKeyWordAction {
 	 *            引用seleniumUtil
 	 * @Description 读取excel中每个sheet的操作步骤，进而生成测试用例
 	 * */
-	public static void readExcel(String founction, String caseName, SeleniumUtil seleniumUtil) {
+	public static void parseExcel(String founction, String caseName, SeleniumUtil seleniumUtil) {
 		FileInputStream filePath = null;
 		XSSFWorkbook workbook = null;
 		String file = "res/testcase/" + founction + ".xlsx";

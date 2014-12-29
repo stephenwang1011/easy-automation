@@ -39,7 +39,7 @@ public class TestCaseFactory {
 		  			} catch (BiffException e1) {
 		  					e1.printStackTrace();
 		  				}
-					sourceFile = new File(caseFolder+functionName.toLowerCase()+File.separator+functionName+sheetName+".java");// 创建测试用例源码，指定存放路径
+					sourceFile = new File(caseFolder+functionName.toLowerCase()+File.separator+functionName+"Page_"+sheetName+".java");// 创建测试用例源码，指定存放路径
 				    FileWriter writer = new FileWriter(sourceFile);
 
 			  //生成测试用例代码的头文件
@@ -47,15 +47,18 @@ public class TestCaseFactory {
 							"package com.incito.keywordauto.testcase."+functionName.toLowerCase()+"; \n"+
 							"import org.testng.annotations.Test; \n"+
 							"import com.incito.keywordauto.base.BaseParpare; \n "+
-							"import com.incito.keywordauto.util.SeleniumKeyWordAction; \n"+
-					        "public class "+functionName+sheetName+" extends BaseParpare{ \n" 
+							"import com.incito.keywordauto.util.SuperKeyWordAction; \n"+
+					        "public class "+functionName+"Page_"+sheetName+" extends BaseParpare{ \n" 
 					);
 	
 			    //@Test的主体部分，也就是测试用例的方法
+					String firstLetter = sheetName.substring(sheetName.indexOf("_")+1).substring(0, 1);
+					String others = sheetName.substring(sheetName.indexOf("_")+1).substring(1);
+					String function = firstLetter.toLowerCase()+others;
 					writer.write( 
 							"@Test \n" +
-						    " public void"+" "+sheetName+"() { \n" +
-						    "SeleniumKeyWordAction.readExcel(\""+functionName+"\",\""+sheetName+"\",seleniumUtil);\n" +
+						    " public void"+" "+function+"() { \n" +
+						    "SuperKeyWordAction.parseExcel(\""+functionName+"\",\""+sheetName+"\",seleniumUtil);\n" +
 						    " }\n" 
 							);
 		
