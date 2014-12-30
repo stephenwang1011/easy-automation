@@ -47,7 +47,7 @@ public class TestCaseFactory {
 							"package com.incito.keywordauto.testcase."+functionName.toLowerCase()+"; \n"+
 							"import org.testng.annotations.Test; \n"+
 							"import com.incito.keywordauto.base.BaseParpare; \n "+
-							"import com.incito.keywordauto.util.SuperKeyWordAction; \n"+
+							"import com.incito.keywordauto.util.SuperAction; \n"+
 					        "public class "+functionName+"Page_"+sheetName+" extends BaseParpare{ \n" 
 					);
 	
@@ -58,7 +58,7 @@ public class TestCaseFactory {
 					writer.write( 
 							"@Test \n" +
 						    " public void"+" "+function+"() { \n" +
-						    "SuperKeyWordAction.parseExcel(\""+functionName+"\",\""+sheetName+"\",seleniumUtil);\n" +
+						    "SuperAction.parseExcel(\""+functionName+"\",\""+sheetName+"\",seleniumUtil);\n" +
 						    " }\n" 
 							);
 		
