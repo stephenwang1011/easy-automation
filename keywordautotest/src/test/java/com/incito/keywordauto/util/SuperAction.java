@@ -172,13 +172,49 @@ public class SuperAction {
 					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
 					seleniumUtil.pause(Integer.parseInt(testData));
 					break;
+					
 				case "等待元素":
 					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
 					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
 					seleniumUtil.waitForElementToLoad(Integer.parseInt(testData), getLocateWay(locateSplit[0], locateSplit[1]));
 					break;
 					
+				case "清除":
+					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
+					seleniumUtil.clear(seleniumUtil.findElementBy(getLocateWay(locateSplit[0], locateSplit[1])));
+					break;
 					
+				case "进入iFrame":
+					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
+					seleniumUtil.switchFrame(seleniumUtil.findElementBy(getLocateWay(locateSplit[0], locateSplit[1])));
+					break;
+					
+				case "退出iFrame":
+					seleniumUtil.outFrame();
+					break;
+					
+				case "选择下拉列表 - 名字":
+					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
+					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
+					seleniumUtil.selectByText(getLocateWay(locateSplit[0], locateSplit[1]), testData);
+					break;
+					
+				case "选择下拉列表 - 序号":
+					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
+					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
+					seleniumUtil.selectByIndex(getLocateWay(locateSplit[0], locateSplit[1]), Integer.parseInt(testData));
+					break;
+					
+				case "检查文本":
+					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
+					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
+					seleniumUtil.isTextCorrect(seleniumUtil.getText(getLocateWay(locateSplit[0], locateSplit[1])), testData);
+					break;
+					
+				case "获得网页标题":
+					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
+					seleniumUtil.isTextCorrect(seleniumUtil.getTitle(),testData);
+					break;
 					
 					
 					
