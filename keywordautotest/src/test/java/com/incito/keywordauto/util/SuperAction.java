@@ -205,10 +205,16 @@ public class SuperAction {
 					seleniumUtil.selectByIndex(getLocateWay(locateSplit[0], locateSplit[1]), Integer.parseInt(testData));
 					break;
 					
-				case "检查文本":
+				case "检查文本 - 元素":
 					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
 					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
 					seleniumUtil.isTextCorrect(seleniumUtil.getText(getLocateWay(locateSplit[0], locateSplit[1])), testData);
+					break;
+					
+				case "检查文本 - 属性":
+					testData = sheet.getRow(i).getCell(testDataColumnIndex).getStringCellValue();
+					locateSplit = getPageElementLocator(sheet, i, locateColumnIndex);
+					seleniumUtil.isTextCorrect(seleniumUtil.getAttributeText(getLocateWay(locateSplit[0], locateSplit[1]), "value"),testData);
 					break;
 					
 				case "获得网页标题":
